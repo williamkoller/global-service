@@ -9,20 +9,20 @@ services:
     ports:
       - ${PORT}:${PORT}
     depends_on:
-      - gb_global_holidays_db
+      - gb_holidays_db
     environment:
       - DB_URL=MONGO_URI
     volumes:
       - .:/app
       - /app/node_modules
 
-  gb_global_holidays_db:
+  gb_holidays_db:
     image: mongo
-    container_name: gb_global_holidays_db
+    container_name: gb_holidays_db
     env_file:
       - .env
     volumes:
-      - mongodata:/data/gb_global_holidays_db
+      - mongodata:/data/gb_holidays_db
     ports:
       - ${DB_PORT}:${DB_PORT}
 
