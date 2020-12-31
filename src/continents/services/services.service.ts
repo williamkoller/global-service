@@ -10,4 +10,8 @@ export class ContinentsService {
   async create(data: CreateContinentDto): Promise<Continent> {
     return await this.continentsRepository.create(data)
   }
+
+  async findAll(): Promise<Array<Continent>> {
+    return await this.continentsRepository.findAll()
+  }
 }

@@ -1,19 +1,25 @@
-import { IsNotEmpty, IsNumber, IsNumberString, IsString } from 'class-validator'
+import { Field, InputType } from '@nestjs/graphql'
+import { IsNotEmpty, IsNumber, IsString } from 'class-validator'
 
+@InputType()
 export class CreateContinentDto {
   @IsString()
   @IsNotEmpty({ message: 'This field cannot be empty.' })
+  @Field()
   name: string
 
-  @IsNumberString()
+  @IsNumber()
   @IsNotEmpty({ message: 'This field cannot be empty.' })
+  @Field()
   territorialExtension: number
 
   @IsNumber()
   @IsNotEmpty({ message: 'This field cannot be empty.' })
+  @Field()
   quantityCountries: number
 
-  @IsNumberString()
+  @IsNumber()
   @IsNotEmpty({ message: 'This field cannot be empty.' })
+  @Field()
   population: number
 }

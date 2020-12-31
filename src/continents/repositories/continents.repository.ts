@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
-import { Continent, ContinentDocument } from '../schemas/continents.schema'
 import { Model } from 'mongoose'
 import { CreateContinentDto } from '../dtos/create-continent.dto'
+import { Continent, ContinentDocument } from '../schemas/continents.schema'
 
 @Injectable()
 export class ContinentsRepository {
@@ -12,5 +12,9 @@ export class ContinentsRepository {
     const continent = new this.continentModel(data)
     await continent.save()
     return continent
+  }
+
+  async findAll(): Promise<Array<Continent>> {
+    return await this.continentModel.find().exec()
   }
 }
