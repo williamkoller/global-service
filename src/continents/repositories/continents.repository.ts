@@ -15,6 +15,6 @@ export class ContinentsRepository {
   }
 
   async findAll(): Promise<Array<Continent>> {
-    return await this.continentModel.find().exec()
+    return await this.continentModel.find({}, { __v: false }).exec()
   }
 }
