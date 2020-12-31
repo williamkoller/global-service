@@ -10,7 +10,7 @@ export class CreateContinentDto {
 
   @IsNumber()
   @IsNotEmpty({ message: 'This field cannot be empty.' })
-  @Field()
+  @Field(() => Number)
   territorialExtension: number
 
   @IsNumber()
