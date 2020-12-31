@@ -1,0 +1,26 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Continent {
+  _id: ID!
+  name: String!
+  territorialExtension: Float!
+  quantityCountries: Float!
+  population: Float!
+}
+
+type Query {
+  findAll: [Continent!]!
+}
+
+type Mutation {
+  create(data: CreateContinentDto!): Continent!
+}
+
+input CreateContinentDto {
+  name: String!
+  territorialExtension: Float!
+  quantityCountries: Float!
+  population: Float!
+}
