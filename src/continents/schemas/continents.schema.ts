@@ -4,7 +4,7 @@ import { Document } from 'mongoose'
 
 export type ContinentDocument = Continent & Document
 
-@Schema()
+@Schema({ _id: true, timestamps: true })
 @ObjectType()
 export class Continent {
   @Field(() => ID)
@@ -14,16 +14,16 @@ export class Continent {
   @Field()
   name: string
 
-  @Prop()
-  @Field()
-  territorialExtension: number
+  @Prop({ maxlength: 20 })
+  @Field(() => Number)
+  public territorialExtension: number
 
   @Prop()
   @Field()
   quantityCountries: number
 
-  @Prop()
-  @Field()
+  @Prop({ maxlength: 20 })
+  @Field(() => Number)
   population: number
 }
 
