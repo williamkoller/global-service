@@ -16,7 +16,7 @@ export class Continent {
 
   @Prop({ maxlength: 20 })
   @Field(() => Number)
-  public territorialExtension: number
+  territorialExtension: number
 
   @Prop()
   @Field()
