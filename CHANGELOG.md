@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 - Add create, findAll, findById and findByName Continents
 - Add GraphQL 
 - Add Interceptor LoggingInterceptor and TransformInterceptor
+- Add update continent
 
 ## Release [v.X.X.X] - xxxx-xx-xx
 
