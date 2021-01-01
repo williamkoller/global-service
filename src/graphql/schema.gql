@@ -18,9 +18,17 @@ type Query {
 
 type Mutation {
   create(data: CreateContinentDto!): Continent!
+  update(data: UpdateContinentDto!, _id: String!): Continent!
 }
 
 input CreateContinentDto {
+  name: String!
+  territorialExtension: Float!
+  quantityCountries: Float!
+  population: Float!
+}
+
+input UpdateContinentDto {
   name: String!
   territorialExtension: Float!
   quantityCountries: Float!
