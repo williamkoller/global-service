@@ -12,6 +12,8 @@ type Continent {
 
 type Query {
   findAll: [Continent!]!
+  findById(id: String!): Continent!
+  findByName(name: String!): [Continent!]!
 }
 
 type Mutation {

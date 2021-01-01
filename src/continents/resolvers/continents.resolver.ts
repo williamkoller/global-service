@@ -16,4 +16,14 @@ export class ContinentsResolver {
   async create(@Args('data') data: CreateContinentDto): Promise<Continent> {
     return await this.continentsService.create(data)
   }
+
+  @Query(() => Continent)
+  async findById(@Args('id') id: string): Promise<Continent> {
+    return await this.continentsService.findById(id)
+  }
+
+  @Query(() => [Continent])
+  async findByName(@Args('name') name: string): Promise<Array<Continent>> {
+    return await this.continentsService.findByName(name)
+  }
 }

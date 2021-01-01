@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common'
+import { Injectable, NotFoundException } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
 import { CreateContinentDto } from '../dtos/create-continent.dto'
@@ -16,5 +16,17 @@ export class ContinentsRepository {
 
   async findAll(): Promise<Array<Continent>> {
     return await this.continentModel.find({}, { __v: false }).exec()
+  }
+
+  async findById(id: string): Promise<Continent> {
+    const continentId = await this.continentModel.findById(id).exec()
+    if (!continentId) {
+      throw new NotFoundException('Continent not found.')
+    }
+    return continentId
+  }
+
+  async findByName(name: string): Promise<Array<Continent>> {
+    return await this.continentModel.find({ name: { $regex: name, $options: 'i' } }, { __v: false })
   }
 }
