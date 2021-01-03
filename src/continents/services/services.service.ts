@@ -34,4 +34,8 @@ export class ContinentsService {
       throw new BadRequestException('Error in update continent')
     }
   }
+
+  async delete(_id: string): Promise<void> {
+    await this.continentsRepository.delete(_id)
+  }
 }
