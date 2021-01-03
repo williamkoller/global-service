@@ -32,4 +32,9 @@ export class ContinentsResolver {
   async update(@Args('_id') _id: string, @Args('data') data: UpdateContinentDto): Promise<Continent> {
     return await this.continentsService.update(_id, data)
   }
+
+  @Mutation()
+  async delete(@Args('_id') _id: string): Promise<void> {
+    await this.continentsService.delete(_id)
+  }
 }
