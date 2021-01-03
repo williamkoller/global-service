@@ -34,4 +34,8 @@ export class ContinentsRepository {
   async update(_id: string, data: UpdateContinentDto): Promise<Continent> {
     return await this.continentModel.findOneAndUpdate({ _id }, { $set: data }).exec()
   }
+
+  async delete(_id: string): Promise<void> {
+    await this.continentModel.remove({ _id }).exec()
+  }
 }
