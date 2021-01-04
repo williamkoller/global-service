@@ -4,6 +4,7 @@ import { GraphQLModule } from '@nestjs/graphql'
 import { MongooseModule } from '@nestjs/mongoose'
 import { join } from 'path'
 import { ContinentsModule } from './continents/continents.module'
+import { ContriesModule } from './contries/contries.module'
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { ContinentsModule } from './continents/continents.module'
       useFindAndModify: false,
     }),
     ContinentsModule,
+    ContriesModule,
   ],
   controllers: [],
   providers: [],
