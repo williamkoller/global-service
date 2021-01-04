@@ -19,6 +19,7 @@ type Query {
 type Mutation {
   create(data: CreateContinentDto!): Continent!
   update(data: UpdateContinentDto!, _id: String!): Continent!
+  delete(_id: String!): String!
 }
 
 input CreateContinentDto {
