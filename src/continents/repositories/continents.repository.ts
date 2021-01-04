@@ -1,6 +1,7 @@
-import { Injectable, NotFoundException } from '@nestjs/common'
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
+import { ReturnResponseEnum } from 'src/common/enum/return-response.enum'
 import { CreateContinentDto } from '../dtos/create-continent.dto'
 import { UpdateContinentDto } from '../dtos/update-continent.dto'
 import { Continent, ContinentDocument } from '../schemas/continents.schema'
@@ -35,7 +36,12 @@ export class ContinentsRepository {
     return await this.continentModel.findOneAndUpdate({ _id }, { $set: data }).exec()
   }
 
-  async delete(_id: string): Promise<void> {
-    await this.continentModel.remove({ _id }).exec()
+  async delete(_id: string): Promise<string> {
+    try {
+      await this.continentModel.deleteOne({ _id }).exec()
+      return ReturnResponseEnum.DELETE
+    } catch (error) {
+      throw new BadRequestException(error.message)
+    }
   }
 }
