@@ -1,6 +1,7 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql'
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
-import { Document } from 'mongoose'
+import { Document, Types } from 'mongoose'
+import { Country } from 'src/contries/schemas/contries.schema'
 
 export type ContinentDocument = Continent & Document
 
@@ -14,17 +15,27 @@ export class Continent {
   @Field()
   name: string
 
-  @Prop({ maxlength: 20 })
-  @Field(() => Number)
-  territorialExtension: number
+  @Prop()
+  @Field()
+  area: {
+    kilometers: number
+    percentage: number
+  }
 
   @Prop()
   @Field()
-  quantityCountries: number
+  population: {
+    approximate: number
+    percentage: number
+  }
 
-  @Prop({ maxlength: 20 })
+  @Prop({ type: [{ type: Types.ObjectId, ref: 'Country' }] })
+  @Field()
+  countries: Array<Country>
+
+  @Prop()
   @Field(() => Number)
-  population: number
+  totalCountries: number
 }
 
 export const ContinentSchema = SchemaFactory.createForClass(Continent)
