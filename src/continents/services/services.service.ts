@@ -35,7 +35,7 @@ export class ContinentsService {
     }
   }
 
-  async delete(_id: string): Promise<void> {
-    await this.continentsRepository.delete(_id)
+  async delete(_id: string): Promise<string> {
+    return await this.continentsRepository.delete(_id)
   }
 }
