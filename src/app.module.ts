@@ -5,6 +5,7 @@ import { MongooseModule } from '@nestjs/mongoose'
 import { join } from 'path'
 import { ContinentsModule } from './continents/continents.module'
 import { ContriesModule } from './contries/contries.module'
+import { AuthModule } from './auth/auth.module'
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { ContriesModule } from './contries/contries.module'
     }),
     ContinentsModule,
     ContriesModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],
