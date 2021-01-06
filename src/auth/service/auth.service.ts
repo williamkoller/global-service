@@ -1,8 +1,8 @@
 import { Inject, Injectable } from '@nestjs/common'
 import { AuthenticationDetails, CognitoUser, CognitoUserPool } from 'amazon-cognito-identity-js'
 import { AwsSerice } from 'src/shared/aws/aws.service'
-import { AuthConfig } from './config/auth.config'
-import { RegisterRequestDto } from './dtos/register-request.dto'
+import { AuthConfig } from '../config/auth.config'
+import { RegisterRequestDto } from '../dtos/register-request.dto'
 
 @Injectable()
 export class AuthService {
