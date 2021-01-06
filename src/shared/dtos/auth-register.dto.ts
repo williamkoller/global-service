@@ -1,5 +1,5 @@
 export class AuthRegisterDto {
-  name: string
+  name?: string
   email: string
   password: string
 }
